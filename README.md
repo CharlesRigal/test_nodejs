@@ -12,6 +12,7 @@
 - Route pour créer un "user"
 - Route pour modifier un "user"
 - Route pour supprimer un "user"
+- Les routes créées doivent retourner le bon code HTTP et doivent utiliser le bon verbe HTTP
 
 ### Optional steps
 
