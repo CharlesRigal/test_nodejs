@@ -15,6 +15,6 @@
 
 ### Optional steps
 
-- Encrypter le password de l'utilisateur
+- Encrypter en md5 le password de l'utilisateur
 - Logger chaque requête avec: Date, IP de l'appelant, durée de la requête
 - Middleware pour la gestion des erreurs
