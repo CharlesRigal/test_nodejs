@@ -16,6 +16,7 @@
 
 ### Optional steps
 
+- Créez toutes vos routes dans un autre fichier, de façon à sortir cette logique du fichier index.js => [Express Doc](https://expressjs.com/fr/guide/routing.html)
 - Encrypter en md5 le password de l'utilisateur
 - Logger chaque requête avec: Date, IP de l'appelant, durée de la requête
 - Middleware pour la gestion des erreurs
