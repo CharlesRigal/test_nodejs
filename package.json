@@ -1,0 +1,24 @@
+{
+  "name": "express-esimed",
+  "version": "1.0.0",
+  "description": "## TP n°1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CDelgrange/express-esimed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CDelgrange/express-esimed/issues"
+  },
+  "homepage": "https://github.com/CDelgrange/express-esimed#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
