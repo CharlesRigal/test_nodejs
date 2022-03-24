@@ -27,17 +27,20 @@ app.post('/user/add', async (req, res) => {
     console.log(req.body.password)
     const hash = await argon2.hash(req.body.password)
     users.addUser(req.body.firstName, req.body.lastName, hash)
+    res.code = 204
     res.send()
 })
 
 app.post('/user/:id/update', async (req, res) => {
     const hash = await argon2.hash(req.body.newPassword)
     users.updateUser(req.params.id, req.body.newFirstName, req.body.newLastName, hash)
+    res.code = 204
     res.send()
 })
 
 app.get('/user/:id/delete', (req, res) => {
     users.deleteUser(req.params.id)
+    res.code = 204
     res.send()
 })
 
