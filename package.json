@@ -21,6 +21,7 @@
   "dependencies": {
     "argon2": "^0.28.5",
     "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "uuid": "^8.3.2"
   }
 }

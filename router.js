@@ -5,16 +5,18 @@ const users = require("./user-acces")
 
 router.use(express.json())
 
-router.get('/users/', (req, res) => {
+router.get('/users/', (req, res, next) => {
+    next()
     res.send(users.getUsers())
 })
 
-router.get('/user/:name', (req, res) => {
+router.get('/user/:name', (req, res, next) => {
     let user = users.getUserByName(req.params.name)
     if (user === undefined) {
         res.statusCode = 404
         return res.send()
     }
+    next()
     return res.send(user)
 })
 

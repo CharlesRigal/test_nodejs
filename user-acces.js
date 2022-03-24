@@ -1,5 +1,6 @@
 
 const users = require("./db")
+const uuid4 = require("uuid")
 
 const getUsers = function () {
     return users
@@ -23,7 +24,7 @@ const updateUser = function (idUser, newFirstName, newLastName, newPassword) {
 }
 
 const addUser = function (firstName, lastName, password) {
-    users.push({id:users.slice(-1)[0].id + 1, firstName:firstName, lastName:lastName, password:password})
+    users.push({id:uuid4.v4(), firstName:firstName, lastName:lastName, password:password})
     return 0
 }
 
