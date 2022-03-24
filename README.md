@@ -18,5 +18,7 @@
 
 - Créez toutes vos routes dans un autre fichier, de façon à sortir cette logique du fichier index.js => [Express Doc](https://expressjs.com/fr/guide/routing.html)
 - Encrypter en md5 le password de l'utilisateur
-- Logger chaque requête avec: Date, IP de l'appelant, durée de la requête
+- Logger chaque requête avec: Date, IP de l'appelant, durée de la requête, verbe + route HTTP
+- Pour la gestion des dates, vous pouvez utiliser la librairie de votre choix disponible sur npm (a condition qu'elle vous semble viable)
+- Pour l'insertion des utilisateurs, et plus particulièrement leur identifiant "id", il faut un uuid et non un entier qui va être auto increment
 - Middleware pour la gestion des erreurs
