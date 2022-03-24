@@ -13,6 +13,8 @@
 - Route pour modifier un "user"
 - Route pour supprimer un "user"
 - Les routes créées doivent retourner le bon code HTTP et doivent utiliser le bon verbe HTTP
+- Ajouter un fichier `.gitignore` à la racine de votre projet pour faire en sorte de ne pas pousser les `node_modules` ainsi que le répertoire `.idea`
+- Si les `node_modules` avaient déjà été poussé sur le repository, trouver la commande git qui permettra de supprimer ce répertoire seulement sur le dépôt GitHub et non en local
 
 ### Optional steps
 
