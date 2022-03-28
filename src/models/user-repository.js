@@ -1,13 +1,14 @@
 const { users } = require('./db');
-const md5 = require('md5');
-const uuid = require('uuid');
+const argon2 = require('argon2')
+const uuid = require('uuid')
+const Console = require("console");
 
 exports.getUsers = () => {
   return users;
 };
 
 exports.getUserByFirstName = (firstName) => {
-  const foundUser = users.find((user) => user.firstName == firstName);
+  const foundUser = users.find((user) => user.firstName === firstName);
 
   if (!foundUser) {
     throw new Error('User not found');
@@ -16,19 +17,22 @@ exports.getUserByFirstName = (firstName) => {
   return foundUser;
 };
 
-exports.createUser = (data) => {
-  const user = {
-    id: uuid.v4(),
-    firstName: data.firstName,
-    lastName: data.lastName,
-    password: md5(data.password),
-  };
-
-  users.push(user);
+exports.createUser = async function (data) {
+  try {
+    exports.getUserByFirstName(data.firstName)
+  } catch (Error) {
+    const user = {
+      id: uuid.v4(),
+      firstName: data.firstName,
+      lastName: data.lastName,
+      password: await argon2.hash(data.password),
+    };
+    users.push(user);
+  }
 };
 
-exports.updateUser = (id, data) => {
-  const foundUser = users.find((user) => user.id == id);
+exports.updateUser = async (id, data) => {
+  const foundUser = users.find((user) => user.id === id);
 
   if (!foundUser) {
     throw new Error('User not found');
@@ -36,15 +40,19 @@ exports.updateUser = (id, data) => {
 
   foundUser.firstName = data.firstName || foundUser.firstName;
   foundUser.lastName = data.lastName || foundUser.lastName;
-  foundUser.password = data.password ? md5(data.password) : foundUser.password;
+  foundUser.password = data.password ? await argon2.hash(data.password) : foundUser.password;
 };
 
 exports.deleteUser = (id) => {
-  const userIndex = users.findIndex((user) => user.id == id);
+  const userIndex = users.findIndex((user) => user.id === id);
 
   if (userIndex === -1) {
     throw new Error('User not foud');
   }
 
   users.splice(userIndex, 1);
+}
+
+exports.checkUser = async (user, password) => {
+  return await argon2.verify(user.password, password);
 }
